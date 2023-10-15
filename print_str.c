@@ -3,7 +3,6 @@
 /**
  * print_str - writes a string to stdout
  * @args: the argument containing the string
- * @printed: the current count of printed characters
  * Return: updated count of printed characters
  */
 int print_str(va_list args)
