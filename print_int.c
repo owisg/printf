@@ -8,8 +8,10 @@
  */
 int print_int(va_list args, int printed)
 {
-    int i;
-    int digit;
+int i;
+int digit;
+int temp;
+int pow10;
 int num = va_arg(args, int);
 int digits = 0;
 
@@ -25,14 +27,14 @@ printed = printed + _putchar('0');
 return (printed);
 }
 
-int temp = num;
+temp = num;
 while (temp != 0)
 {
 digits++;
 temp = temp / 10;
 }
 
-int pow10 = 1;
+pow10 = 1;
 for (i = 1; i < digits; i++)
 {
 pow10 = pow10 * 10;
@@ -42,8 +44,8 @@ while (pow10 > 0)
 {
 digit = num / pow10;
 printed = printed + _putchar(digit + '0');
-num = num - digit * pow10;
-        pow10 = pow10 / 10;
+num -= digit *pow10;
+pow10 = pow10 / 10;
 }
 
 return (printed);

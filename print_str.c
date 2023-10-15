@@ -7,7 +7,6 @@
  */
 int print_str(va_list args)
 {
-int printed = 0;
 ssize_t written_byte = 0;
 int len;
 char *str = va_arg(args, char *);
