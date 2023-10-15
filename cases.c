@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -28,10 +32,6 @@ else if (*format == '%')
 _putchar('%');
 printed++;
 }
-else if (*format == 'u')
-{
-printed = print_unsig(va_arg(args, unsigned int), printed);
-}
 else if (*format == 'o')
 {
 printed = print_oct(va_arg(args, unsigned int), printed);
@@ -40,10 +40,6 @@ else if (*format == 'x' || *format == 'X')
 {
 printed = print_hexa(va_arg(args, unsigned int), printed,
 (*format == 'X') ? 1 : 0);
-}
-else if (*format == 'b')
-{
-printed = printf_binary(va_arg(args, unsigned int), printed);
 }
 return (printed);
 }
