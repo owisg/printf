@@ -13,7 +13,7 @@ int printed = 0;
 va_list args;
 
 va_start(args, format);
-if (*format == NULL)
+if (*format == '\0')
 {
 return (0);
 }
