@@ -32,7 +32,6 @@ printed++;
 format++;
 }
 }
-
 va_end(args);
 return (printed);
 }

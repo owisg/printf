@@ -19,7 +19,7 @@ printed = print_int(args, printed);
 }
 else if (*format == 'c')
 {
-_putchar(va_arg(args, int));
+print_char(args, printed);
 printed++;
 }
 else if (*format == 's')
