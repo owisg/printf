@@ -10,6 +10,6 @@ int print_str(va_list args);
 int print_int(va_list args, int printed);
 int my_choice(const char *format, va_list args, int printed);
 int _printf(const char *format, ...);
-
+int print_int(va_list args, int printed);
 #endif
 

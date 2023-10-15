@@ -11,10 +11,13 @@
  * @format: the format specifier
  * Return: printed characters
  */
-
 int my_choice(const char *format, va_list args, int printed)
 {
-if (*format == 'c')
+if (*format == 'd' || *format == 'i')
+{
+printed = print_int(args, printed);
+}
+else if (*format == 'c')
 {
 _putchar(va_arg(args, int));
 printed++;
