@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+
 /**
  * print_char - prints a character
  * @args: the arguments to use

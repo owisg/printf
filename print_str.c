@@ -25,5 +25,5 @@ if (written_byte < 0)
 {
 return (-1);
 }
-return (printed + written_byte);
+return (len);
 }
