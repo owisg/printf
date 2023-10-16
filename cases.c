@@ -13,11 +13,7 @@
  */
 int my_choice(const char *format, va_list args, int printed)
 {
-if (*format == 'd' || *format == 'i')
-{
-printed = print_int(args, printed);
-}
-else if (*format == 'c')
+if (*format == 'c')
 {
 print_char(args, printed);
 printed++;
