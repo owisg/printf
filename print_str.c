@@ -5,24 +5,15 @@
  * @args: the argument containing the string
  * Return: updated count of printed characters
  */
-int print_str(va_list args)
+int print_str(va_list args, int printed)
 {
-ssize_t written_byte = 0;
-int len;
-char *str = va_arg(args, char *);
-if (str == NULL)
+char *string = va_arg(args, char *);
+
+while (*string != '\0')
 {
-str = "(null)";
+_putchar(*string);
+printed++;
+string++;
 }
-len = 0;
-while (str[len])
-{
-len++;
-}
-written_byte = write(1, str, len);
-if (written_byte < 0)
-{
-return (-1);
-}
-return (len);
+return (printed);
 }

@@ -15,12 +15,13 @@ int my_choice(const char *format, va_list args, int printed)
 {
 if (*format == 'c')
 {
-printed = print_char(args, printed);
-
+_putchar(va_arg(args, int));
+printed++;
 }
 else if (*format == 's')
 {
-printed = print_str(args);
+printed = print_str(args,printed);
+printed++;
 }
 else if (*format == '%')
 {
