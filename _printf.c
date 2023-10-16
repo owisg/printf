@@ -13,7 +13,7 @@ int printed = 0;
 va_list args;
 
 va_start(args, format);
-if (*format == '\0')
+if (format == NULL)
 {
 return (0);
 }
@@ -23,14 +23,13 @@ if (*format == '%')
 {
 format++;
 printed = my_choice(format, args, printed);
-format++;
 }
 else
 {
 _putchar(*format);
 printed++;
-format++;
 }
+format++;
 }
 va_end(args);
 return (printed);

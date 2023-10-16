@@ -15,8 +15,8 @@ int my_choice(const char *format, va_list args, int printed)
 {
 if (*format == 'c')
 {
-print_char(args, printed);
-printed++;
+printed = print_char(args, printed);
+
 }
 else if (*format == 's')
 {
