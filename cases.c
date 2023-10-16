@@ -17,6 +17,7 @@ int i, j, value, print;
 print = 0;
 for (i = 0; format[i] != '\0'; i++)
 {
+<<<<<<< HEAD
 if (format[i] == '%')
 {
 for (j = 0; convert_list[j].operator != NULL; j++)
@@ -29,9 +30,14 @@ return (-1);
 print += value;
 break;
 }
+=======
+_putchar(va_arg(args, int));
+printed++;
+>>>>>>> 74946c6bf67fac1dc152bc67781d76e5b33c8cec
 }
 if (convert_list[j].operator == NULL && format[i + 1] != ' ')
 {
+<<<<<<< HEAD
 if (format[i + 1] != '\0')
 {
 _putchar(format[i]);
@@ -40,6 +46,10 @@ print = print + 2;
 }
 else
 return (-1);
+=======
+printed = print_str(args,printed);
+printed++;
+>>>>>>> 74946c6bf67fac1dc152bc67781d76e5b33c8cec
 }
 i += 1;
 }
