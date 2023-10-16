@@ -8,30 +8,20 @@
 
 int _printf(const char *format, ...)
 {
-int printed = 0;
+int print;
+convert cases_list[] = {
+{"c", print_char},
+{"s", print_string},
+{"%", print_percent},
+{NULL, NULL}
+};
+va_list arg_list;
 
-va_list args;
-
-va_start(args, format);
-if (*format == '\0')
-{
-return (0);
-}
-while (*format != '\0')
-{
-if (*format == '%')
-{
-format++;
-printed = my_choice(format, args, printed);
-format++;
-}
-else
-{
-_putchar(*format);
-printed++;
-format++;
-}
-}
-va_end(args);
-return (printed);
+if (format == NULL)
+return (-1);
+va_start(arg_list, format);
+/*Calling parser function*/
+print = cases(format, cases_list, arg_list);
+va_end(arg_list);
+return (print);
 }

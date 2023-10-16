@@ -3,13 +3,11 @@
 
 /**
  * print_char - prints a character
- * @args: the arguments to use
- * @printed: the printed characters
+ * @list: the arguments to use
  * Return: printed characters
  */
-int print_char(va_list args, int printed)
+int print_char(va_list list)
 {
-char character = va_arg(args, int);
-write(1, &character, 1);
-return (printed + 1);
+_putchar(va_arg(list, int));
+return (1);
 }

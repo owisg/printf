@@ -5,27 +5,49 @@
 #include "main.h"
 
 /**
- * my_choice - selects the appropriate format specifiers
- * @args: number of arguments
- * @printed: the printed characters
+ * cases - selects the appropriate format specifiers
+ * @convert_list: A list of all the expected functions.
+ * @arg_list: A list containing all the argumentents passed to the program
  * @format: the format specifier
  * Return: printed characters
  */
-int my_choice(const char *format, va_list args, int printed)
+int cases(const char *format, convert convert_list[], va_list arg_list)
 {
-if (*format == 'c')
+int i, j, value, print;
+print = 0;
+for (i = 0; format[i] != '\0'; i++)
 {
-print_char(args, printed);
-printed++;
+if (format[i] == '%')
+{
+for (j = 0; convert_list[j].operator != NULL; j++)
+{
+if (format[i + 1] == convert_list[j].operator[0])
+{
+value = convert_list[j].assoc(arg_list);
+if (value == -1)
+return (-1);
+print += value;
+break;
 }
-else if (*format == 's')
-{
-printed = print_str(args);
 }
-else if (*format == '%')
+if (convert_list[j].operator == NULL && format[i + 1] != ' ')
 {
-_putchar('%');
-printed++;
+if (format[i + 1] != '\0')
+{
+_putchar(format[i]);
+_putchar(format[i + 1]);
+print = print + 2;
 }
-return (printed);
+else
+return (-1);
+}
+i += 1;
+}
+else
+{
+_putchar(format[i]);
+print++;
+}
+}
+return (print);
 }
